@@ -1,0 +1,48 @@
+{% extends 'Base.html' %}
+
+{% load static %}
+
+{% block top %}
+    <p class="breadcrumbs"><span class="mr-2"><a href="{%url 'Home'%}">Home <i class="fa fa-chevron-right"></i></a></span> <span>Blog <i class="fa fa-chevron-right"></i></span></p>
+    <h1 class="mb-3 bread">Update File</h1>
+{% endblock %}
+
+{% block context %}
+    
+    <section class="ftco-section">
+        <div class="row block-9 text-center">
+            <div class="col-md-8 mx-auto">
+                <h1>Create File</h1>
+                {{form.non_field_errors}}
+                <form method='POST' enctype="multipart/form-data" class="p-4 p-md-5 contact-form">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Blog Title"{{form.name}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <h3>Change Documents</h3>
+                                {{form.file}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <h3>Types</h3>
+                                {{form.type}}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Update File" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+	</section>
+
+{% endblock %}
